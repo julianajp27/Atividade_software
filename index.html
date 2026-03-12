@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Engenharia de Software - Juliana Jardim</title>
+    <style>
+        /* Estilização Geral */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f0f8ff; /* Azul AliceBlue (o mais claro) */
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            padding: 20px;
+        }
+
+        /* Container da Apresentação */
+        #pres-container { 
+            background: white; 
+            width: 95%; 
+            max-width: 900px; 
+            padding: 40px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            text-align: center; 
+            min-height: 500px;
+            margin-top: 20px;
+        }
+
+        /* Menu de Botões Superiores */
+        .menu-top { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 12px; 
+            margin-bottom: 40px; 
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0f0ff;
+        }
+
+        /* Estilo dos Botões Roxo */
+        .btn-topic { 
+            padding: 14px 20px; 
+            font-size: 16px; 
+            font-weight: bold;
+            cursor: pointer; 
+            border: none; 
+            border-radius: 8px; 
+            background-color: #6a5acd; /* Roxo SlateBlue */
+            color: white; 
+            transition: all 0.3s ease;
+            min-width: 130px;
+        }
+
+        .btn-topic:hover { 
+            background-color: #483d8b; 
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Botão Início (Roxo mais escuro) */
+        .btn-home {
+            background-color: #4b0082; /* Roxo Indigo */
+        }
+
+        /* Slides e Animação */
+        .slide { display: none; animation: slideIn 0.5s ease-out; }
+        .active { display: block; }
+        
+        @keyframes slideIn { 
+            from { opacity: 0; transform: scale(0.95); } 
+            to { opacity: 1; transform: scale(1); } 
+        }
+
+        /* Estilização de Texto */
+        h1 { color: #2c3e50; font-size: 32px; margin-bottom: 20px; }
+        h2 { color: #6a5acd; font-size: 26px; margin-top: 0; }
+        p { line-height: 1.8; color: #333; font-size: 19px; text-align: left; max-width: 750px; margin: 20px auto; }
+        .metadata { font-weight: bold; color: #7f8c8d; display: block; margin-bottom: 15px; font-size: 16px; }
+        
+        /* Rodapé */
+        .footer-info { 
+            margin-top: 50px; 
+            font-size: 18px;
+            font-weight: bold; 
+            color: #2c3e50; 
+            border-top: 2px solid #f0f8ff; 
+            padding-top: 20px; 
+        }
+    </style>
+</head>
+<body>
+
+<div id="pres-container">
+    <nav class="menu-top">
+        <button class="btn-topic btn-home" onclick="showSlide(0)">Início</button>
+        <button class="btn-topic" onclick="showSlide(1)">1. Cascata</button>
+        <button class="btn-topic" onclick="showSlide(2)">2. UML</button>
+        <button class="btn-topic" onclick="showSlide(3)">3. Ágil</button>
+        <button class="btn-topic" onclick="showSlide(4)">4. Scrum</button>
+        <button class="btn-topic" onclick="showSlide(5)">5. Git</button>
+        <button class="btn-topic" onclick="showSlide(6)">6. Testes</button>
+        <button class="btn-topic" onclick="showSlide(7)">7. DevOps</button>
+        <button class="btn-topic" onclick="showSlide(8)">8. IA/Nuvem</button>
+        <button class="btn-topic" onclick="showSlide(9)">Linha do Tempo</button>
+        <button class="btn-topic" onclick="showSlide(10)">Conclusão</button>
+    </nav>
+
+    <div id="content">
+        <div class="slide active">
+            <h1>ENGENHARIA DE SOFTWARE</h1>
+            <p style="text-align: center;">Utilize o menu acima para navegar pelos marcos históricos da Engenharia de Software.</p>
+        </div>
+
+        <div class="slide">
+            <span class="metadata">Marco Histórico: 1970</span>
+            <h2>1. MODELO CASCATA (WATERFALL)</h2>
+            <p><strong>Desafio Real:</strong> Entregas que não atendem às expectativas dos usuários.</p>
+            <p><strong>Explicação Técnica:</strong> Foi a primeira tentativa de organizar o caos, definindo etapas rígidas de projeto.</p>
+        </div>
+
+        <div class="slide">
+            <span class="metadata">Marco Histórico: 1994 a 1997</span>
+            <h2>2. CRIAÇÃO DA LINGUAGEM UML</h2>
+            <p><strong>Desafio Real:</strong> Projetos com documentação insuficiente.</p>
+            <p><strong>Explicação Técnica:</strong> Padronizou a forma de desenhar diagramas para que todos entendam o projeto.</p>
+        </div>
+
+        <div class="slide">
+            <span class="metadata">Marco Histórico: 2001</span>
+            <h2>3. MANIFESTO ÁGIL</h2>
+            <p><strong>Desafio Real:</strong> Falta de comunicação entre equipe e cliente.</p>
+            <p><strong>Explicação Técnica:</strong> Priorizou a colaboração e a resposta rápida a mudanças, em vez de seguir um plano rígido.</p>
+        </div>
+
+        <div class="slide">
+            <span class="metadata">Marco Histórico: Início dos anos 2000</span>
+            <h2>4. POPULARIZAÇÃO DO SCRUM</h2>
+            <p><strong>Desafio Real:</strong> Retrabalho e perda de prazos.</p>
+            <p><strong>Explicação Técnica:</strong> Criou as "Sprints", ciclos curtos que permitem corrigir erros rápido e manter o cronograma em dia.</p>
+        </div>
+
+        <div class="slide">
+            <span class="metadata">Marco Histórico: 2005 e 2008</span>
+            <h2>5. EXPANSÃO DO GITHUB E GIT</h2>
+            <p><strong>Desafio Real:</strong> Versionamento confuso e conflitos de código.</p>
+            <p><strong>Explicação Técnica:</strong> Permitiu que vários desenvolvedores trabalhem no mesmo código sem um apagar o trabalho do outro.</p>
+        </div>
+
+        <div class="slide">
+            <span class="metadata">Marco Histórico: 2005 e 2010</span>
+            <h2>6. AUTOMAÇÃO DE TESTES</h2>
+            <p><strong>Desafio Real:</strong> Falta de testes automatizados.</p>
+            <p><strong>Explicação Técnica:</strong> Garante que novas alterações não quebrem o que já estava funcionando no sistema.</p>
+        </div>
+
+        <div class="slide">
+            <span class="metadata">Marco Histórico: 2009</span>
+            <h2>7. DEVOPS / INTEGRAÇÃO CONTÍNUA</h2>
+            <p><strong>Desafio Real:</strong> Retrabalho e lentidão no deploy.</p>
+            <p><strong>Explicação Técnica:</strong> Une o time de desenvolvimento com o de operações para que o software chegue ao usuário de forma automática e segura.</p>
+        </div>
+
+        <div class="slide">
+            <span class="metadata">Marco Histórico: 2015 a Presente</span>
+            <h2>8. ES PARA IA E NUVEM</h2>
+            <p><strong>Desafio Real:</strong> Escalabilidade e processamento massivo.</p>
+            <p><strong>Explicação Técnica:</strong> O desafio atual é gerenciar sistemas gigantescos que aprendem sozinhos e rodam em servidores globais.</p>
+        </div>
+        <div class="slide">
+            <ul class="timeline-summary">
+                <p><b>Antigamente (Era do Caos):</b> Sem padrão, clientes insatisfeitos e prazos estourados.</p>
+                <p><b>Era da Documentação (UML/Cascata):</b> Tentativa de resolver com burocracia, tornando o processo lento.</p>
+                <p><b>Era Ágil (Scrum/Agile):</b> Foco em comunicação e entregas pequenas e frequentes.</p>
+                <p><b>Era Moderna (DevOps/Git/IA):</b> Foco em velocidade, automação e escala segura.</p>
+            </ul>
+        </div>
+        <div class="slide">
+            <h2>CONCLUSÃO</h2>
+            <p>• <strong>Evolução por Necessidade:</strong> Cada marco histórico surgiu para resolver um problema real.</p>
+            <p>• <strong>Pessoas acima de Processos:</strong> A comunicação entre desenvolvedor e usuário é o segredo do sucesso.</p>
+            <p>• <strong>Responsabilidade e Ética:</strong> O engenheiro deve garantir que a tecnologia ajude o mundo de forma segura e justa.</p>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        Juliana Jardim de Paula
+    </div>
+</div>
+
+<script>
+    /* Função JavaScript para alternar entre os slides */
+    function showSlide(index) {
+        const slides = document.querySelectorAll(".slide");
+        slides.forEach(s => s.classList.remove("active"));
+        slides[index].classList.add("active");
+    }
+</script>
+
+</body>
+</html>
